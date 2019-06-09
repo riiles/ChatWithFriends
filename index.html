@@ -74,7 +74,6 @@
 				msg.innerHTML = text;
 				msgs.appendChild(msg);
 				msg.scrollIntoView();
-				window.scrollTo(0,50000)
 			}
 			window.onload = function(){
 				msgs = document.querySelector("#msg");
@@ -82,7 +81,6 @@
 					if(e.key == "Enter" && /\S/.test(this.value)) {
 						sendMsg(this.value);
 						this.value = "";
-						this.scrollIntoView();
 					}
 				};
 				document.querySelector("#txt").focus();
