@@ -71,9 +71,9 @@
 			sendMsg = function(text){
 				var msg = document.createElement("DIV");
 				msg.className = "bubble "+ ((s=!s)?"you":"them");
+				msgs.appendChild(msg);
 				msg.innerHTML = text;
 				msg.scrollIntoView();
-				msgs.appendChild(msg);
 			}
 			window.onload = function(){
 				msgs = document.querySelector("#msg");
