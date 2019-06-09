@@ -24,21 +24,21 @@
 				border: 20px solid transparent;
 				border-top: 0;
 			}
-			.you {
+			.your {
 				background: #00aabb;
 				text-align: left;
 			}
-			.you:after { 
+			.your:after { 
 				left: 0;
 				border-right-color: #00aabb;
 				border-left: 0;
 				margin-left: -20px;
 			}
-			.them {
+			.their {
 				background: #5CDD20; 
 				text-align: right;
 			}
-			.them:after { 
+			.their:after { 
 				right: 0;
 				border-left-color: #5CDD20;
 				border-right: 0;
@@ -71,7 +71,7 @@
 			var msgs, s = 0;
 			sendMsg = function(text){
 				var msg = document.createElement("DIV");
-				msg.className = "bubble "+ ((s=!s)?"you":"them");
+				msg.className = ((s=!s)?"your":"their")+" bubble";
 				msgs.appendChild(msg);
 				msg.innerHTML = text;
 				msg.scrollIntoView();
@@ -91,7 +91,7 @@
 	</head>
 	<body>
 		<div id="msg">
-			<div class="bubble them">Hi there!</div>
+			<div class="their bubble">Hi there!</div>
 		</div>
 		<div id="chat">
 			<input id="txt" placeholder="Talk to your friend!">
