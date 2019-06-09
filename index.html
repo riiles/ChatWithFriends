@@ -73,7 +73,7 @@
 				var msg = document.createElement("DIV");
 				msg.className = ((s=!s)?"your":"their")+" bubble";
 				msgs.appendChild(msg);
-				msg.innerHTML = text;
+				msg.textContent = text;
 				msg.scrollIntoView();
 				window.scrollTo(0, document.body.scrollHeight);
 			}
