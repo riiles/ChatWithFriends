@@ -71,8 +71,8 @@
 				msg.className = "bubble "+ ((s=!s)?"you":"them");
 				msg.innerHTML = text;
 				msgs.appendChild(msg);
-				window.scrollTo(0,document.body.scrollHeight);
-				document.documentElement.scrollTop = document.documentElement.scrollHeight;
+				msg.scrollIntoView();
+
 			}
 			window.onload = function(){
 				msgs = document.querySelector("#msg");
@@ -81,7 +81,6 @@
 						sendMsg(this.value);
 						this.value = "";
 					}
-					this.scrollIntoView();
 				};
 				document.querySelector("#txt").focus();
 			}
