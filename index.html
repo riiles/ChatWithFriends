@@ -76,7 +76,7 @@
 			window.onload = function(){
 				msgs = document.querySelector("#msg");
 				document.querySelector("#txt").onkeydown = function(e){
-					if(e.key == "Enter") {
+					if(e.key == "Enter" && this.value.length > 1) {
 						sendMsg(this.value);
 						this.value = "";
 					}
