@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Chat with a friend</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<style>
+			.bubble {
+				position: relative;
+				border-radius: .4em;
+				font-size: 32px;
+				font-family: Arial;
+				color: #fff;
+				padding: 15px;
+				margin: 25px;
+			}
+			.bubble:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				width: 0;
+				height: 0;
+				border: 20px solid transparent;
+				border-top: 0;
+			}
+			.you {
+				background: #00aabb;
+				text-align: left;
+			}
+			.you:after { 
+				left: 0;
+				border-right-color: #00aabb;
+				border-left: 0;
+				margin-left: -20px;
+			}
+			.them {
+				background: #5CDD20; 
+				text-align: right;
+			}
+			.them:after { 
+				right: 0;
+				border-left-color: #5CDD20;
+				border-right: 0;
+				margin-right: -20px;
+			}
+			#chat {
+				position: fixed;
+				bottom: 0;
+				right: 0%;
+				left: 0%;
+				text-align: center;
+				margin: 25px;
+			}
+			#txt {
+				width: 85%;
+				padding: 8px;
+				border: solid #ccc 1px;
+				border-radius: .4em;
+				font-size: 32px;
+				font-family: Arial;
+				color: #000;
+			}
+			#msg {
+				margin-bottom: 100px;
+			}	
+		</style>
+		<script>
+			var msgs, s = 0;
+			sendMsg = function(text){
+				var msg = document.createElement("DIV");
+				msg.className = "bubble "+ ((s=!s)?"you":"them");
+				msg.innerHTML = text;
+				msgs.appendChild(msg);
+				window.scrollTo(0,document.body.scrollHeight);
+			}
+			window.onload = function(){
+				msgs = document.querySelector("#msg");
+				document.querySelector("#txt").onkeydown = function(e){
+					if(e.key == "Enter") {
+						sendMsg(this.value);
+						this.value = "";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="msg">
+			<div class="bubble them">Hi there!</div>
+		</div>
+		<div id="chat">
+			<input id="txt" placeholder="Talk to your friend!">
+		</div>
